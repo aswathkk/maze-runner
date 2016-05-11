@@ -7,8 +7,8 @@
 
 class Maze {
 
-		int maxx;
-		int maxy;
+		int maxx, maxy;
+		int init_x, init_y, fin_x, fin_y;
 
 	public:
 
@@ -16,8 +16,10 @@ class Maze {
 
 		Maze();
 		void load();
-		void printMaze();
+		void print();
+		void print(int, int);
 		void draw();
+		void getPosition(int *, int *, int *, int *);
 
 		void drawWall(float, float);
 		void drawFloor(float, float);

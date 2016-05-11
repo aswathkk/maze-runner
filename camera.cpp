@@ -17,17 +17,32 @@ Camera::Camera(float a, float b, float c) {
 	count++;
 }
 
+void Camera::moveTo(int xx, int yy, int zz) {
+	x = xx;
+	y = yy;
+	z = zz;
+}
+
 void Camera::moveFront(float factor) {
 	x += lx * factor;
 	z += lz * factor;
 }
 
+void Camera::moveUp(float factor) {
+	x += lx * factor;
+	y += ly * factor;
+}
+
 void Camera::rotateX(float angle) {
+	// if(angle > 360) angle -= 360;
+	// if(angle < 0) angle += 360;
 	ly = sin(angle * PI / 180);
 	lz = -cos(angle * PI / 180);
 }
 
 void Camera::rotateY(float angle) {
+	// if(angle > 360) angle -= 360;
+	// if(angle < 0) angle += 360;
 	lx = sin(angle * PI / 180);
 	lz = -cos(angle * PI / 180);
 }

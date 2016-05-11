@@ -10,3 +10,6 @@ OUTPUT = a.out
 
 build: $(FILES)
 	$(CC) $(FILES) $(LIBS) -o $(OUTPUT)
+
+detect: $(FILES)
+	$(CC) detect.cpp camera.cpp $(LIBS) -o $(OUTPUT)

@@ -15,6 +15,8 @@ struct Camera {
 
 		Camera(float,float,float);
 		void moveFront(float);
+		void moveUp(float);
+		void moveTo(int, int, int);
 		void rotateX(float);
 		void rotateY(float);
 		void view();

@@ -22,8 +22,18 @@ void Maze::load() {
 		} else {
 			if(c == '0')
 				m[i][j] = 0;
-			else
+			else if(c == '1')
 				m[i][j] = 1;
+			else if(c == 's') {
+				m[i][j] = 2;
+				init_x = j;
+				init_y = i;
+			}
+			else if(c == 'f') {
+				m[i][j] = 3;
+				fin_x = j;
+				fin_y = i;
+			}
 			j++;
 		}
 	}
@@ -32,11 +42,32 @@ void Maze::load() {
 //	printMaze();
 }
 
-void Maze::printMaze() {
+void Maze::getPosition(int *x1, int *y1, int *x2, int *y2) {
+	*x1 = init_x;
+	*y1 = init_y;
+	*x2 = fin_x;
+	*y2 = fin_y;
+}
+
+void Maze::print() {
 	int i,j;
 	for(i = 0; i < maxx; i++){
 		for(j = 0; j < maxy; j++)
 			printf("%d ", m[i][j]);
+		printf("\n");
+	}
+	printf("--------------\n");
+}
+
+void Maze::print(int x, int y) {
+	int i,j;
+	for(i = 0; i < maxx; i++){
+		for(j = 0; j < maxy; j++){
+			if(i==y&&j==x)
+				printf("x ");
+			else
+				printf("%d ", m[i][j]);
+		}
 		printf("\n");
 	}
 	printf("--------------\n");

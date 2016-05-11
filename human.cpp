@@ -49,11 +49,13 @@ void Human::draw(float x, float z, float lx, float lz) {
 	glMaterialfv(GL_FRONT,GL_SHININESS,shininess);
 	
 	if(flag)
-		w+=.3;
+		w+=.5;
 
 	glPushMatrix();
 	glScalef(.1,.1,.1);
 	float angle = atan(lz/lx) * 180/PI; // angle need to be checked to fix sudden change in orientation of player
+	// if(angle > 360) angle -= 360;
+	// if(angle < 0) angle += 360;
 	//printf("%f\n", angle);
 	glTranslatef(x,6.8,z);
 	glRotatef(90-angle,0,1,0);
